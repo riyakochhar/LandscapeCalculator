@@ -18,6 +18,10 @@ function BasicDetails({
 }) {
   const handleAreaChange = (e) => {
     setArea(e.target.value);
+    const regex = /^\d*$/;
+    if (regex.test(e.target.value)) {
+      setArea(e.target.value);
+    }
   };
 
   const handleBudgetChange = (selectedOption) => {
@@ -73,7 +77,7 @@ function BasicDetails({
           <p className={styles.dollar_text}>USD</p>
         </div>
       </div>
-      <center className={styles.center}>
+      <center className={styles.main_center}>
         <button type="submit" className={styles.next_btn}>
           Next
         </button>

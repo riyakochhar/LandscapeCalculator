@@ -4,79 +4,11 @@
   font-family: "Urbanist", sans-serif;
 }
 body {
-  /* background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%); */
-  /* background: hsla(186, 33%, 94%, 1);
-
-  background: linear-gradient(
-    90deg,
-    hsla(186, 33%, 94%, 1) 0%,
-    hsla(216, 41%, 79%, 1) 100%
-  );
-
-  background: -moz-linear-gradient(
-    90deg,
-    hsla(186, 33%, 94%, 1) 0%,
-    hsla(216, 41%, 79%, 1) 100%
-  );
-
-  background: -webkit-linear-gradient(
-    90deg,
-    hsla(186, 33%, 94%, 1) 0%,
-    hsla(216, 41%, 79%, 1) 100%
-  );
-
-  background-repeat: no-repeat; */
   background-size: cover;
+  background: linear-gradient(155deg, #bee0ea 0%, #fff 100%);
 }
-body {
-  background: linear-gradient(0deg, #ffffff, #76e6ff, #617dd5);
-  background-size: 600% 600%;
-  -webkit-animation: AnimationName 4s ease infinite;
-  -moz-animation: AnimationName 4s ease infinite;
-  -o-animation: AnimationName 4s ease infinite;
-  animation: AnimationName 4s ease infinite;
-}
-@-webkit-keyframes AnimationName {
-  0% {
-    background-position: 0% 28%;
-  }
-  50% {
-    background-position: 100% 73%;
-  }
-  100% {
-    background-position: 0% 28%;
-  }
-}
-@-moz-keyframes AnimationName {
-  0% {
-    background-position: 0% 28%;
-  }
-  50% {
-    background-position: 100% 73%;
-  }
-  100% {
-    background-position: 0% 28%;
-  }
-}
-@-o-keyframes AnimationName {
-  0% {
-    background-position: 0% 28%;
-  }
-  50% {
-    background-position: 100% 73%;
-  }
-  100% {
-    background-position: 0% 28%;
-  }
-}
-@keyframes AnimationName {
-  0% {
-    background-position: 0% 28%;
-  }
-  50% {
-    background-position: 100% 73%;
-  }
-  100% {
-    background-position: 0% 28%;
+@media screen and (max-width: 1024px) {
+  body {
+    background: radial-gradient(circle, #fff 0%, #bee0ea 100%);
   }
 }

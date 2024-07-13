@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./css/style.module.css";
 import { costs, areaPercentages, featuresList } from "./components/constants";
 import BasicDetails from "./components/BasicDetails";
@@ -10,39 +10,8 @@ const BudgetCalculator = () => {
   const [selectedFeatures, setSelectedFeatures] = useState({});
   const [isUSD, setIsUSD] = useState(false); // Currency state
   const [step, setStep] = useState(1); // Step state
-  const [tenure, setTenure] = useState([
-    // {
-    //   plan: "3 Months",
-    //   totalCost: "59535.00",
-    //   downpayment: "17860.50",
-    //   moveInPayment: "5953.50",
-    //   instalments: "11907.00",
-    //   title:
-    //     "Ideal if you want to build or scale your website fast, with the strategy calls included",
-    // },
-    // {
-    //   plan: "6 Months",
-    //   totalCost: "62370.00",
-    //   downpayment: "15592.50",
-    //   moveInPayment: "6237.00",
-    //   instalments: "6756.75",
-    //   title:
-    //     "Ideal if you want to build or scale your website fast, with the strategy calls included",
-    // },
-    // {
-    //   plan: "12 Months",
-    //   totalCost: "65205.00",
-    //   downpayment: "6520.50",
-    //   moveInPayment: "6520.50",
-    //   instalments: "4347.00",
-    //   title:
-    //     "Ideal if you want to build or scale your website fast, with the strategy calls included",
-    // },
-  ]);
-
-  useEffect(() => {
-    console.log("tenur", tenure);
-  }, [tenure]);
+  const [tenure, setTenure] = useState([]);
+  const [error, setError] = useState("");
 
   const handleFeatureChange = (e) => {
     const { name, checked } = e.target;
@@ -64,6 +33,7 @@ const BudgetCalculator = () => {
     setIsUSD(false);
     setTenure([]);
     setStep(1);
+    setError("");
   };
 
   const calculatePlans = (totalCost) => {
@@ -137,8 +107,13 @@ const BudgetCalculator = () => {
 
     console.log("Area:", area);
     console.log("Selected Budget Type:", budgetType);
-    console.log("Total Cost:", formatCurrency(totalCost));
-    calculatePlans(totalCost);
+    console.log("Total Cost:", formatCurrency(totalCost), totalCost);
+    if (totalCost === 0) {
+      console.log("err", error);
+      setError("Please add atleast one feature for the calculations!");
+    } else {
+      calculatePlans(totalCost);
+    }
   };
 
   const renderSteps = () => {
@@ -175,11 +150,9 @@ const BudgetCalculator = () => {
               {currentFeature?.items?.map((item) => (
                 <label
                   key={item?.value}
-                  className={styles.checkbox_label}
-                  style={{
-                    flex:
-                      currentFeature?.value === "indoorAmenities" && "1 0 33%",
-                  }}
+                  className={`${styles.checkbox_label} ${
+                    currentFeature?.value === "indoorAmenities" && styles.flex
+                  }`}
                 >
                   <input
                     type="checkbox"
@@ -203,7 +176,7 @@ const BudgetCalculator = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <>
       {tenure?.length > 0 ? (
         <PaymentDetails
           tenure={tenure}
@@ -211,27 +184,37 @@ const BudgetCalculator = () => {
           handleNewCalc={handleNewCalc}
         />
       ) : (
-        <div className={styles.wrapper}>
-          <div className={styles.header}>
-            <h2 className={styles.heading}>Landscape Cost Calculator</h2>
-            <p className={styles.steps}>Step {step} of 7</p>
+        <div className={styles.container}>
+          <div className={styles.wrapper}>
+            <div className={styles.header}>
+              <h2 className={styles.heading}>Landscape Cost Calculator</h2>
+              <p className={styles.steps}>Step {step} of 7</p>
+            </div>
+            {renderSteps()}
+            {step !== 1 && (
+              <center className={styles.center}>
+                {error !== "" && (
+                  <div className={styles.error}>
+                    <p style={{ color: "red" }}>{error}</p>
+                    <p onClick={handleNewCalc} className={styles.new}>
+                      Start New?
+                    </p>
+                  </div>
+                )}
+                <button
+                  onClick={() =>
+                    step < 7 ? setStep(step + 1) : calculateTotalCost()
+                  }
+                  className={styles.next_btn}
+                >
+                  {step < 7 ? "Next" : "Calculate"}
+                </button>
+              </center>
+            )}
           </div>
-          {renderSteps()}
-          {step !== 1 && (
-            <center className={styles.center}>
-              <button
-                onClick={() =>
-                  step < 7 ? setStep(step + 1) : calculateTotalCost()
-                }
-                className={styles.next_btn}
-              >
-                {step < 7 ? "Next" : "Calculate"}
-              </button>
-            </center>
-          )}
         </div>
       )}
-    </div>
+    </>
   );
 };
 
