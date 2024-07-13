@@ -157,12 +157,12 @@
     gap: 20px;
   }
   .details {
-    padding: 2vh 3vw;
+    padding: 2vh 4vw;
     width: 300px;
   }
   .plan {
-    font-size: 16px;
-    padding: 0.7vh 2vw;
+    font-size: 14px;
+    padding: 0.7vh 4vw;
   }
   .light_text {
     font-size: 14px;
@@ -171,6 +171,7 @@
     padding-top: 1vh;
     padding-bottom: 1vh;
     margin-bottom: 2vh;
+    font-size: 28px;
   }
   .row_2 {
     gap: 15px;
@@ -179,10 +180,10 @@
     font-size: 1.5rem;
   }
   .heading {
-    font-size: 14px;
+    font-size: 13px;
   }
   .text {
-    font-size: 18px;
+    font-size: 16px;
   }
   .btn {
     font-size: 16px;
