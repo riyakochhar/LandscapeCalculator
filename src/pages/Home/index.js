@@ -9,36 +9,8 @@ const BudgetCalculator = () => {
   const [selectedBudget, setSelectedBudget] = useState(null);
   const [selectedFeatures, setSelectedFeatures] = useState({});
   const [isUSD, setIsUSD] = useState(false); // Currency state
-  const [step, setStep] = useState(7); // Step state
-  const [tenure, setTenure] = useState([
-    {
-      plan: "3 Months",
-      title:
-        "Ideal if you want to build or scale your website fast, with the strategy calls included",
-      totalCost: "14302.37",
-      downpayment: "4290.71",
-      moveInPayment: "1430.24",
-      instalments: "2860.47",
-    },
-    {
-      plan: "6 Months",
-      title:
-        "Ideal if you want to build or scale your website fast, with the strategy calls included",
-      totalCost: "14983.44",
-      downpayment: "3745.86",
-      moveInPayment: "1498.34",
-      instalments: "1623.21",
-    },
-    {
-      plan: "12 Months",
-      title:
-        "Ideal if you want to build or scale your website fast, with the strategy calls included",
-      totalCost: "15664.50",
-      downpayment: "1566.45",
-      moveInPayment: "1566.45",
-      instalments: "1044.30",
-    },
-  ]);
+  const [step, setStep] = useState(1); // Step state
+  const [tenure, setTenure] = useState([]);
   const [error, setError] = useState("");
 
   const handleFeatureChange = (e) => {
