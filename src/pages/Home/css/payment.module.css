@@ -1,0 +1,123 @@
+.payment_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 60px;
+}
+.payment_header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.payment_heading {
+  font-size: 42px;
+}
+.payment_text {
+  /* color: #e8e0f4; */
+  font-size: 20px;
+  color: lightslategray;
+}
+.footer_text {
+  font-size: 18px;
+  color: lightslategray;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.btn {
+  background-color: transparent;
+  outline: none;
+  padding: 1.2vh 3vw;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  width: 100%;
+  border: 1px solid rgb(219, 217, 217);
+  cursor: pointer;
+}
+.payment_container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.details {
+  border-radius: 12px;
+  padding: 2vh 2vw;
+  border: 1px solid #f6f2fb;
+  background-color: #fff;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+}
+.plan {
+  background-color: #8249ff;
+  color: #fff;
+  font-size: 18px;
+  padding: 0.7vh 1.5vw;
+  border-radius: 12px;
+  width: fit-content;
+}
+.row_1 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 2vh;
+}
+.total_amount_div {
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
+  font-size: 34px;
+  font-weight: 700;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  margin-bottom: 3vh;
+  width: 100%;
+  border-bottom: 1px solid rgb(219, 217, 217);
+}
+.icon {
+  font-size: 2rem;
+}
+.sub_row_1 {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+.sub_div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.heading {
+  font-size: 16px;
+  color: lightslategray;
+}
+.text {
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  gap: 7px;
+}
+.row_2 {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+  padding-bottom: 4vh;
+  margin-bottom: 3vh;
+  border-bottom: 1px solid rgb(219, 217, 217);
+}
+.light_text {
+  color: lightslategray;
+  font-size: 14px;
+}
+.btn:hover {
+  background-color: #2f2b43;
+  color: #fff;
+  border: 1px solid transparent;
+}

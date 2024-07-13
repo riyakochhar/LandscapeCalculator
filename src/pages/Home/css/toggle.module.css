@@ -1,0 +1,90 @@
+.toggle[type="checkbox"] {
+  visibility: hidden;
+  display: none;
+}
+
+.toggle,
+.toggle:after,
+.toggle:before,
+.toggle *,
+.toggle *:after,
+.toggle *:before,
+.toggle + .toggle_button {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.toggle::-moz-selection,
+.toggle:after::-moz-selection,
+.toggle:before::-moz-selection,
+.toggle *::-moz-selection,
+.toggle *:after::-moz-selection,
+.toggle *:before::-moz-selection,
+.toggle + .toggle_button::-moz-selection {
+  background: none;
+}
+
+.toggle::selection,
+.toggle:after::selection,
+.toggle:before::selection,
+.toggle *::selection,
+.toggle *:after::selection,
+.toggle *:before::selection,
+.toggle + .toggle_button::selection {
+  background: none;
+}
+
+.toggle + .toggle_button {
+  outline: 0;
+  display: inline-block;
+  width: 4em;
+  height: 2em;
+  position: relative;
+  cursor: pointer;
+  border: 2px solid #333;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.toggle + .toggle_button:after,
+.toggle + .toggle_button:before {
+  position: relative;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+}
+
+.toggle + .toggle_button:after {
+  left: 0;
+}
+
+.toggle + .toggle_button:before {
+  display: none;
+}
+
+.toggle:checked + .toggle_button:after {
+  left: 50%;
+}
+
+.toggle + .toggle_button {
+  padding: 2px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  border: 2px solid rgba(156, 174, 192, 0.27);
+  border-radius: 2em;
+}
+
+.toggle + .toggle_button:after {
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  background: rgba(156, 174, 192, 0.27);
+  content: "";
+  border-radius: 1em;
+}
+
+.toggle:checked + .toggle_button:after {
+  left: 50%;
+}
