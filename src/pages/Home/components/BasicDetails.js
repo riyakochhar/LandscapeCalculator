@@ -17,10 +17,17 @@ function BasicDetails({
   setIsUSD,
 }) {
   const handleAreaChange = (e) => {
-    setArea(e.target.value);
-    const regex = /^\d*$/;
-    if (regex.test(e.target.value)) {
-      setArea(e.target.value);
+    const newValue = e.target.value;
+
+    if (/^\d*$/.test(newValue)) {
+      setArea(newValue);
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    // Prevent entering non-numeric characters
+    if (!/[0-9]/.test(e.key)) {
+      e.preventDefault();
     }
   };
 
@@ -47,6 +54,7 @@ function BasicDetails({
             type="number"
             value={area}
             onChange={handleAreaChange}
+            onKeyPress={handleKeyPress}
             className={styles.input}
             placeholder="Enter area in m2"
             required
